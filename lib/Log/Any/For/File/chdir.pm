@@ -35,10 +35,11 @@ our $h = patch_package(
  $CWD = "bar";
  ...
 
-will produce these log statements (at the trace level):
+Now everytime C<$CWD> is set, the directory name will be logged. To see the log
+messages at the screen, use this for example:
 
+ % TRACE=1 perl -MLog::Any::Adapter=Screen -MLog::Any::For::File::chdir -MFile::chdir -e'$CWD = "foo"; ...'
  [File::chdir] chdir(foo)
- [File::chdir] chdir(bar)
 
 
 =head1 SEE ALSO
